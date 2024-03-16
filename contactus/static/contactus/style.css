@@ -1,0 +1,24 @@
+.input-field {
+    margin-bottom: 1rem;
+}
+
+.input-field label,
+.input-field input {
+    display: block;
+}
+
+.errorlist {
+    list-style: none;
+    color: red;
+    margin: 0.23rem 0;
+    padding: 0;
+}
+
+.errors input {
+    border-color: darkred;
+    background-color: red;
+}
+
+.errors label {
+    color: red;
+}

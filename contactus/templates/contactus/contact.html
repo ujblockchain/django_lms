@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{% static "contactus/style.css" %}">
+</head>
+
+<body>
+    {% comment %} MANUAL METHOD {% endcomment %}
+    {% comment %} <form method="POST">
+        {% csrf_token %}
+
+        {% if has_error %}
+            <p>Invalid Entry - Fullname is required or too short</p>
+        {% endif %}
+
+        <label for="full_name">Full name</label>
+        <input type="text" name="full_name" id="full_name">
+
+        <button>Submit</button>
+    </form> {% endcomment %}
+
+    {% comment %} BUILT-IN DJANGO FUNCTIONALITY {% endcomment %}
+    <form method="POST", enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% comment %} {{ form }} {% endcomment %}
+
+        {% comment %} <div class="input-field {% if form.full_name.errors %} errors {% endif %}">
+            {{ form.full_name.label_tag }}
+            {{ form.full_name }}
+            {{ form.full_name.errors }}
+        </div>
+        <div class="input-field {% if form.email.errors %} errors {% endif %}">
+            {{ form.email.label_tag }}
+            {{ form.email }}
+            {{ form.email.errors }}
+        </div> {% endcomment %}
+
+        {% for element in form %}
+        <div class="input-field {% if element.errors %} errors {% endif %}">
+            {{ element.label_tag }}
+            {{ element }}
+            {{ element.errors }}
+        </div>
+
+        {% endfor %}
+
+
+        <br />
+
+        <button>Submit</button>
+
+    </form>
+
+
+</body>
+
+</html>

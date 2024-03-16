@@ -1,0 +1,9 @@
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button>Submit</button>
+    <br>
+    <br />
+    <br />
+    <a href="{% url 'studentManagementSystem:signup' %}">Sign Up</a>
+</form>

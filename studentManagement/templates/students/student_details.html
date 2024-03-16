@@ -1,0 +1,21 @@
+{% extends "students/base.html" %}
+
+{% block title %}
+   {{ firstname }} {{ lastname }}
+{% endblock %}
+
+{% block content  %}
+<h1> {{ firstname }} {{ lastname }} </h1>
+<p>
+    is {{ age }} years old and currently 
+    {% if is_registered %} 
+    registered
+    {% else %}
+    unregistered
+    {% endif %}
+    for the academic year.
+</p>
+<a href="{% url 'studentManagementSystem:index' %}">Go back to the Student list</a>
+
+
+{% endblock %}

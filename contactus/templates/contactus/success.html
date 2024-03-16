@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Your query has been sent.</p>
+
+    <ul>
+        {% for query in queries %}
+        {% if query.screenshot %}
+            <li>
+                <img src="{{ query.screenshot.url }}" />
+            </li>
+
+        {% endif %}
+        {% endfor %}
+    </ul>
+
+</body>
+
+</html>
